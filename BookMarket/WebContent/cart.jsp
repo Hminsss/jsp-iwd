@@ -22,10 +22,10 @@
 			<table width = "100%">
 			<tr>
 				<td align="left"><a href="./deleteCart.jsp?cartId=<%=cartId %>" class="btn btn-danger">삭제하기</a></td>
-				<td align="right"><a href="#" class ="btn btn-success">주문하기</a></td>
+				<td align="right"><a href="./shippingInfo.jsp?cartId=<%= cartId %>" class ="btn btn-success">주문하기</a></td>
 			</tr>
 			</table>
-		</div>
+		
 	</div>
 	<div style="padding-top:50px">
 		<table class="table table=hover">
@@ -47,13 +47,31 @@
 					Book book = cartList.get(i);
 					int total = book.getUnitPrice() * book.getQuantity();
 					sum = sum + total;
+				
+			%>
+			<tr>
+				<td><%=book.getbookId() %> - <%=book.getName() %></td>
+				<td><%=book.getUnitPrice() %></td>
+				<td><%=book.getQuantity() %></td>
+				<td><%=total %></td>
+				<td><a href="./removeCart.jsp?id=<%= book.getbookId() %>" class="badge badge-danger">삭제</a></td>
+			</tr>
+			<%
 				}
 			%>
 			<tr>
-				<td><%=book.getbookId() %> - <%= book.getPname() %>
+				<th></th>
+				<th></th>
+				<th>총액</th>
+				<th><%=sum %></th>
+				<th></th>
 			</tr>
 		</table>
-	</div>
+		<a href = "./books.jsp" class = "btn btn-secondary">&laquo; 쇼핑 계속하기</a>
+		</div>
+	<hr>
+</div>
+<jsp:include page="footer.jsp"/>
 	
 </body>
 </html>
