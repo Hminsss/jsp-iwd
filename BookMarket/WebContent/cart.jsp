@@ -21,8 +21,8 @@
 		<div class="row">
 			<table width = "100%">
 			<tr>
-				<td align="left"><a href="./deleteCart.jsp?cartId=<%=cartId %>" class="btn btn-danger">삭제하기</a></td>
-				<td align="right"><a href="./shippingInfo.jsp?cartId=<%= cartId %>" class ="btn btn-success">주문하기</a></td>
+				<td align="left"><a href="./deleteCart.jsp?cartId=<%=cartId%>" class="btn btn-danger">삭제하기</a></td>
+				<td align="right"><a href="./shippingInfo.jsp?cartId=<%=cartId%>" class ="btn btn-success">주문하기</a></td>
 			</tr>
 			</table>
 		
@@ -38,16 +38,15 @@
 			</tr>
 			<%
 				int sum = 0;
-				ArrayList<Book> cartList = (ArrayList<Book>)session.getAttribute("cartlist");
-				if( cartList == null){
-					cartList = new ArrayList<Book>();
-				}
-				
-				for(int i =0; i <cartList.size();i++){
-					Book book = cartList.get(i);
-					int total = book.getUnitPrice() * book.getQuantity();
-					sum = sum + total;
-				
+					ArrayList<Book> cartList = (ArrayList<Book>)session.getAttribute("cartlist");
+					if( cartList == null){
+						cartList = new ArrayList<Book>();
+					}
+					
+					for(int i =0; i <cartList.size();i++){
+						Book book = cartList.get(i);
+						int total = book.getUnitPrice() * book.getQuantity();
+						sum = sum + total;
 			%>
 			<tr>
 				<td><%=book.getbookId() %> - <%=book.getName() %></td>

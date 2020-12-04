@@ -29,7 +29,7 @@
 	<%
 		String id = request.getParameter("id");
 		BookRepository dao = BookRepository.getInstance();
-		Book book = dao.getBooktById(id);
+			Book book = dao.getBooktById(id);
 	%>
 	<div class = "container">
 		<div class = "row">

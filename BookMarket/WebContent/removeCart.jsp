@@ -21,7 +21,7 @@
 	for(int i=0;i<cartList.size(); i++){
 		goodsQnt = cartList.get(i);
 		if(goodsQnt.getbookId().equals(id)){
-			cartList.remove(goodsQnt);
+	cartList.remove(goodsQnt);
 		}
 	}
 	

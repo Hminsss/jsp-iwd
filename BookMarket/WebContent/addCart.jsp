@@ -23,7 +23,7 @@
 	for(int i = 0; i <goodsList.size(); i++){
 		goods = goodsList.get(i);
 		if(goods.getbookId().equals(id)){
-			break;
+	break;
 		}
 	}
 	
@@ -39,9 +39,9 @@
 	for(int i =0;i<list.size(); i++){
 		goodsQnt = list.get(i);
 		if(goodsQnt.getbookId().equals(id)){
-			cnt++;
-			int orderQuantity = goodsQnt.getQuantity()+1;
-			goodsQnt.setQuantity(orderQuantity);
+	cnt++;
+	int orderQuantity = goodsQnt.getQuantity()+1;
+	goodsQnt.setQuantity(orderQuantity);
 		}
 		
 	}

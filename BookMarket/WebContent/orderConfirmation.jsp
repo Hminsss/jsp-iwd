@@ -14,26 +14,26 @@
 	String shipping_addressName = "";Cookie[] cookies = request.getCookies();
 	if (cookies != null) {
 		for (int i=0; i<cookies.length; i++) {
-			Cookie thisCookie = cookies[i];
-			String n = thisCookie.getName();
-			if (n.equals("Shipping_cartId")) {
-				shipping_cartId = URLDecoder.decode((thisCookie.getValue()), "utf-8");
-			}
-			if (n.equals("Shipping_name")) {
-				shipping_name = URLDecoder.decode((thisCookie.getValue()), "utf-8");
-			}
-			if (n.equals("Shipping_shippingDate")) {
-				shipping_shippingDate = URLDecoder.decode((thisCookie.getValue()), "utf-8");
-			}
-			if (n.equals("Shipping_country")) {
-				shipping_country = URLDecoder.decode((thisCookie.getValue()), "utf-8");
-			}
-			if (n.equals("Shipping_zipCode")) {
-				shipping_zipCode = URLDecoder.decode((thisCookie.getValue()), "utf-8");
-			}
-			if (n.equals("Shipping_addressName")) {
-				shipping_addressName = URLDecoder.decode((thisCookie.getValue()), "utf-8");
-			}
+	Cookie thisCookie = cookies[i];
+	String n = thisCookie.getName();
+	if (n.equals("Shipping_cartId")) {
+		shipping_cartId = URLDecoder.decode((thisCookie.getValue()), "utf-8");
+	}
+	if (n.equals("Shipping_name")) {
+		shipping_name = URLDecoder.decode((thisCookie.getValue()), "utf-8");
+	}
+	if (n.equals("Shipping_shippingDate")) {
+		shipping_shippingDate = URLDecoder.decode((thisCookie.getValue()), "utf-8");
+	}
+	if (n.equals("Shipping_country")) {
+		shipping_country = URLDecoder.decode((thisCookie.getValue()), "utf-8");
+	}
+	if (n.equals("Shipping_zipCode")) {
+		shipping_zipCode = URLDecoder.decode((thisCookie.getValue()), "utf-8");
+	}
+	if (n.equals("Shipping_addressName")) {
+		shipping_addressName = URLDecoder.decode((thisCookie.getValue()), "utf-8");
+	}
 		}
 	}
 %>
@@ -56,12 +56,22 @@
 	<div class="row justify-content-between">
 		<div class="col-4" align="left">
 			<strong>배송 주소</strong> <br>
-			성명 : <% out.println(shipping_name); %> <br>
-			우편변호 : <% out.println(shipping_zipCode); %><br>
-			주소 : <% out.println(shipping_addressName); %>(<%out.println(shipping_country); %>) <br>
+			성명 : <%
+ 	out.println(shipping_name);
+ %> <br>
+			우편변호 : <%
+ 	out.println(shipping_zipCode);
+ %><br>
+			주소 : <%
+ 	out.println(shipping_addressName);
+ %>(<%
+ 	out.println(shipping_country);
+ %>) <br>
 		</div>
 		<div class="col-4" align="right">
-			<p> <em>배송일: <% out.println(shipping_shippingDate); %></em>
+			<p> <em>배송일: <%
+ 	out.println(shipping_shippingDate);
+ %></em>
 		</div>
 	</div>
 	<div>
@@ -99,8 +109,8 @@
 		</tr>
 	</table>
 	<a href="./shippingInfo.jsp?cartId=<%=shipping_cartId%>"class="btn btn-secondary" role="button"> 이전 </a>
-	<a href="./thankCustomer.jsp" class="btn btnsuccess" role="button"> 주문 완료 </a>
-	<a href="./checkOutCancelled.jsp" class="btn btnsecondary" role="button"> 취소 </a>
+	<a href="./thankCustomer.jsp" class="btn btn-success" role="button"> 주문 완료 </a>
+	<a href="./checkOutCancelled.jsp" class="btn btn-secondary" role="button"> 취소 </a>
 	</div>
 	</div>
 </body>
